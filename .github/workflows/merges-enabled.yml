@@ -2,9 +2,10 @@
 name: Merges Enabled
 
 on:
-  pull_request: # to update newly open PRs or when a PR is synced
-  check_suite: # to update all PRs upon a Check Suite completion
-    type: ['completed']
+  pull_request:               # to update newly open PRs or when a PR is synced
+  repository_dispatch:
+    #types: [enable_merges, disable_merges]
+  check_suite:                # to update all PRs upon a Check Suite completion
 
 jobs:
   merges-enabled:
