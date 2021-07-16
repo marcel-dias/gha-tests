@@ -12,7 +12,7 @@ jobs:
     if: github.event.check_suite.head_branch == 'main' || github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     steps:
-      - name: Fail job if secrets.MERGES_ENABLED is set
+      - name: validate if merges are enabled
         shell: bash
         env:
           MERGES_ENABLED: ${{ secrets.MERGES_ENABLED }}
