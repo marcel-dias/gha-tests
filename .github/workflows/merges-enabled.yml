@@ -10,7 +10,6 @@ jobs:
   merges-enabled:
     name: Are Merges Enabled?
     runs-on: ubuntu-latest
-    if: github.event.repository_dispatch.head_branch == 'main' || github.event.pull_request.base.ref == 'main'
     steps:
       - name: validate if merges are enabled
         shell: bash
