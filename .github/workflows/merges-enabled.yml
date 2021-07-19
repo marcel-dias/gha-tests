@@ -10,6 +10,7 @@ jobs:
   merges-enabled:
     name: Are Merges Enabled?
     runs-on: ubuntu-latest
+    if: github.event.repository_dispatch.head_branch == 'main' || github.event.pull_request.base.ref == 'main'
     steps:
       - name: validate if merges are enabled
         shell: bash
@@ -23,3 +24,8 @@ jobs:
               echo "Merges to main are not enabled"
               exit 1
           fi
+      - uses: cirrus-actions/branch-guard@v1.2
+        with:
+          appsToCheck: Are Merges Enabled?  # or any other App name (can be a comma separated list of names)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
