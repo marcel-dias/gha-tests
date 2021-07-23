@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: marcel-dias/branch-guard@v1.3-RC3
       with:
-        appsToCheck: Are Merges Enabled?  # or any other App name (can be a comma separated list of names)
+        appsToCheck: "Are Merges Enabled?,Merges Enabled / Are Merges Enabled?"  # or any other App name (can be a comma separated list of names)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
