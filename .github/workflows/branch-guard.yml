@@ -1,0 +1,16 @@
+on:
+  pull_request: # to update newly open PRs or when a PR is synced
+  repository_dispatch:
+    types: [enable_merges, disable_merges]
+  
+name: Branch Guard
+jobs:
+  branch-guard:
+    name: Branch Guard
+    runs-on: ubuntu-latest
+    steps:
+    - uses: marcel-dias/branch-guard@v1.3-RC3
+      with:
+        appsToCheck: "Are Merges Enabled?,Merges Enabled / Are Merges Enabled?"  # or any other App name (can be a comma separated list of names)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

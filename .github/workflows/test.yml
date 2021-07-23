@@ -1,0 +1,14 @@
+name: Test
+on: repository_dispatch
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: 'echo "GITHUB_SHA: $GITHUB_SHA"'
+      - run: 'echo "GITHUB_REF: $GITHUB_REF"'
+      - run: 'echo "event: ${{ toJson(github.event) }}"'
+      - run: 'echo "branch: ${{ github.event.branch }}"'
+      - run: echo enable_merges
+        if: github.event.action == 'enable_merges'
