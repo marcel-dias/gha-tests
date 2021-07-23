@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: 'echo "event: ${{ toJson(github.event) }}"'
-      - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
+      - run: 'echo "branch: ${{ github.event.branch }}"'
       - run: echo enable_merges
-        if: github.event.type == 'enable_merges'
+        if: github.event.action == 'enable_merges'
