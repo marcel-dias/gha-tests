@@ -1,0 +1,12 @@
+name: Test
+on: repository_dispatch
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: 'echo "event: ${{ github.event }}"'
+      - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
+      - run: echo enable_merges
+        if: github.event.type == 'enable_merges'
