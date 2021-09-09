@@ -9,3 +9,4 @@ Test a github action to answer `Are merges enabled?`
 ## Topic 7
 
 nice topic
+topic 2
